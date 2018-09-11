@@ -4,7 +4,7 @@ export class Veiculo {
         public pneu:number, 
         public cor:string, 
         public marca:string, 
-        public motorista:string
+        public motorista?:string
         ){}
 
     alterarCorVeiculo(): void{

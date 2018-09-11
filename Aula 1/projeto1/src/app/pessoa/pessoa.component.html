@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  
+  <h2>Exemplo *ngFor</h2>
+  <div *ngIf="true">
+    <ul *ngFor="let pessoa of pessoas">
+      <li *ngIf="pessoa.idade > 30">
+        {{ pessoa.nome }}  - {{ pessoa.idade }}
+      </li>
+      <li *ngIf="pessoa.idade <= 30">
+          {{ pessoa.nome }}  - {{ pessoa.idade }}
+      </li>
+    </ul>
+  </div>
+  
+  <h2>Exemplo *ngSwitch</h2>
+  <ul *ngFor="let pessoa of pessoas" [ngSwitch]="pessoa.idade">
+    <li *ngSwitchCase="30">
+        {{ pessoa.nome }}  - {{ pessoa.idade }}
+    </li>
+    <li *ngSwitchCase="32">
+        {{ pessoa.nome }}  - {{ pessoa.idade }}
+    </li>
+  </ul>
+  
+  <h2>Exemplo *ngStyle</h2>
+  <ul *ngFor="let pessoa of pessoas">
+    <li>
+      <label [ngStyle]="{
+          'color': pessoa.idade == 30 ? 'red' : 
+          (pessoa.idade > 30 ? 'blue' : 'green')
+        }">
+        {{ pessoa.nome }} - {{ pessoa.idade }}
+      </label>
+    </li>
+  </ul>
+  
+  <h2>Exemplo *ngClass</h2>
+  <ul *ngFor="let pessoa of pessoas">
+    <li>
+      <label [ngClass]="{ 'text-red': pessoa.idade < 30,
+                          'text-blue': pessoa.idade == 30,
+                          'text-green': pessoa.idade > 30}">
+          {{pessoa.nome}} - {{pessoa.idade}}
+      </label>
+    </li>
+  </ul>

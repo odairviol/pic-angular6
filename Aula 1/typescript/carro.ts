@@ -10,9 +10,9 @@ export class Carro extends Veiculo implements Motor {
     constructor(pneu: number,
         cor: string,
         marca: string,
-        motorista: string,
         portas: number, 
-        passageiros: number){
+        passageiros: number,
+        motorista?: string){
 
         super(pneu, cor, marca, motorista)
 

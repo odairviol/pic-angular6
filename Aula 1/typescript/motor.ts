@@ -1,6 +1,6 @@
 export interface Motor {
 
-    acelerar(): any;
+    acelerar(): void;
 
-    desacelerar(): any;
+    desacelerar(): void;
 }
