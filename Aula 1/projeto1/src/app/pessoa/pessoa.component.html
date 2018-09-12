@@ -7,14 +7,13 @@
 
 <div class="row">
   <div class="col-sm-5">
-    <input class="form-control" type="text" placeholder="Digite o Nome da Pessoa" [(ngModel)]="nome">
-    <p>{{nome}}</p>
+    <input class="form-control" type="text" placeholder="Digite o Nome da Pessoa" [(ngModel)]="pessoa.nome">
   </div>
 </div>
 <br />
 <div class="row">
   <div class="col-sm-5">
-    <input class="form-control" type="number" placeholder="Digite a Idade" [(ngModel)]="idade">
+    <input class="form-control" type="number" placeholder="Digite a Idade" [(ngModel)]="pessoa.idade">
   </div>
 </div>
 <br />
@@ -22,14 +21,12 @@
 <br />
 <br />
 
-<div *ngIf="pessoas.length > 0">
+<ng-container class="text-red" *ngIf="pessoas.length > 0">
   <h2>Exemplo *ngFor</h2>
-  <ul *ngFor="let pessoa of pessoas">
-    <li *ngIf="pessoa.idade > 30">
+  <ul *ngFor="let pessoa of pessoas>
+    <li>
       {{ pessoa.nome }} - {{ pessoa.idade }}
-    </li>
-    <li *ngIf="pessoa.idade <= 30">
-      {{ pessoa.nome }} - {{ pessoa.idade }}
+      <button type="button" class="btn btn-danger">Excluir</button>
     </li>
   </ul>
 
@@ -65,4 +62,4 @@
       </label>
     </li>
   </ul>
-</div>
+</ng-container>
