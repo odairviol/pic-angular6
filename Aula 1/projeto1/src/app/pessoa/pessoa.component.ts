@@ -10,11 +10,20 @@ export class PessoaComponent implements OnInit {
 
   title = 'PIC Angular';
 
+  nome: string;
+  idade: number;
+
   pessoas: Pessoa[] = []
 
   constructor() { }
 
   ngOnInit() {
+    this.nome = "";
+    this.idade = null;
+  }
+
+  adicionar(): void {
+    
   }
 
 }
