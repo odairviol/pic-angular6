@@ -1,0 +1,5 @@
+Valor do componente pai: {{valorComponentePai}}
+<app-filho [hidden]="!visivelFilho" [valorComponenteFilho]="valorComponentePai" #idComponeteFilho></app-filho>
+
+<button (click)="mudarValor()">Alterar Valor</button>
+<button (click)="destruirFilho()">Destruir Filho</button>

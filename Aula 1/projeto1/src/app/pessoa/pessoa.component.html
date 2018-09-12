@@ -23,10 +23,10 @@
 
 <ng-container class="text-red" *ngIf="pessoas.length > 0">
   <h2>Exemplo *ngFor</h2>
-  <ul *ngFor="let pessoa of pessoas>
+  <ul *ngFor="let pessoa of pessoas; index as i">
     <li>
       {{ pessoa.nome }} - {{ pessoa.idade }}
-      <button type="button" class="btn btn-danger">Excluir</button>
+      <button type="button" class="btn btn-danger" (click)="excluirPorIndex(i)">Excluir</button>
     </li>
   </ul>
 

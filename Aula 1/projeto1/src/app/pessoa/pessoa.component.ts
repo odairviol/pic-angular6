@@ -11,7 +11,7 @@ export class PessoaComponent implements OnInit {
   title = 'PIC Angular';
 
   pessoa: Pessoa;
-  pessoas: Pessoa[] = []
+  pessoas: Array<Pessoa> = []
 
   constructor() { }
 
@@ -19,10 +19,21 @@ export class PessoaComponent implements OnInit {
     this.pessoa = new Pessoa("", null);
   }
 
-  adicionar(): void {
+  protected adicionar(): void {
     this.pessoas.push(this.pessoa);
     console.log("Adicionado " + this.pessoa.nome);
     this.ngOnInit();
+  }
+
+  excluirPorObjeto(pessoa: Pessoa): void {
+    console.log("Me excluiu " + pessoa.nome);
+    let index = this.pessoas.indexOf(pessoa);
+    this.pessoas.splice(index, 1);
+  }
+
+  excluirPorIndex(index: number){
+    console.log(index);
+    this.pessoas.splice(index, 1);
   }
 
 }
