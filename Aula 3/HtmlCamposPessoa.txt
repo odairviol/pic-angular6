@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-5">
+      <input class="form-control" type="text" placeholder="Digite o Nome da Pessoa">
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-sm-5">
+      <input class="form-control" type="number" placeholder="Digite a Idade">
+    </div>
+  </div>
+  <br/>
+  <button type="button" class="btn btn-primary">Adicionar</button>
+  <br/>
+  <br/>

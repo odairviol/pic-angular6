@@ -5,8 +5,8 @@
     </h1>
   </div>
   
-  <h2>Exemplo *ngFor</h2>
-  <div *ngIf="true">
+  <div *ngIf="pessoas.length > 0">
+    <h2>Exemplo *ngFor</h2>
     <ul *ngFor="let pessoa of pessoas">
       <li *ngIf="pessoa.idade > 30">
         {{ pessoa.nome }}  - {{ pessoa.idade }}
@@ -15,7 +15,6 @@
           {{ pessoa.nome }}  - {{ pessoa.idade }}
       </li>
     </ul>
-  </div>
   
   <h2>Exemplo *ngSwitch</h2>
   <ul *ngFor="let pessoa of pessoas" [ngSwitch]="pessoa.idade">
@@ -49,3 +48,4 @@
       </label>
     </li>
   </ul>
+</div>
