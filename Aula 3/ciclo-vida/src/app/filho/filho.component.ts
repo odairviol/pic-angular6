@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, DoCheck, 
   AfterContentInit, AfterContentChecked, AfterViewInit, 
-  AfterViewChecked, OnDestroy, Input, ViewChild, ElementRef } from '@angular/core';
+  AfterViewChecked, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filho',
@@ -15,6 +15,8 @@ export class FilhoComponent implements OnInit,
 
   @Input() valorComponenteFilho: number;
 
+  valorDigitado: string;
+
   constructor() { }
 
   ngOnChanges(): void {
@@ -27,22 +29,27 @@ export class FilhoComponent implements OnInit,
   }
 
   ngDoCheck(): void {
-    console.log("ngDoCheck");
+    console.log("ngDoCheck escutando alteração " + this.valorDigitado);
   }
+  
   ngAfterContentInit(): void {
     console.log("ngAfterContentInit");
   }
+  
   ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked");
+    console.log("ngAfterContentChecked escutando alteração " + this.valorDigitado);
   }
+  
   ngAfterViewInit(): void {
     console.log("ngAfterViewInit");
   }
+  
   ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked");
+    console.log("ngAfterViewChecked escutando alteração " + this.valorDigitado);
   }
+
   ngOnDestroy(): void {
-    console.log("ngOnDestroy Me destruiu :(" + this.valorComponenteFilho);
+    console.log("ngOnDestroy Me destruiu :( " + this.valorComponenteFilho);
   }
 
 }
