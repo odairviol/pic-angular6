@@ -16,9 +16,7 @@
           <label for="tipo">&nbsp;&nbsp;Tipo de Anúncio</label>
           <select class="form-control">
             <option>Selecione</option>
-            <option>Imóveis</option>
-            <option>Veículos</option>
-            <option>Outros</option>
+            <option *ngFor="let tipo of tiposAnuncio | async">{{tipo.nome}}</option>
           </select>
         </div>
         <div class="form-group col-md-6">

@@ -1,0 +1,16 @@
+{
+  "tipo-anuncio": [
+	{ "id": 1,
+	  "nome": "Veículos",
+	  "descricao": "Carro, Moto e Caminhões"	
+	},
+	{ "id": 2,
+	  "nome": "Imóveis",
+	  "descricao": "Casas, Apartamentos e Terrenos"	
+	},
+	{ "id": 3,
+	  "nome": "Outros",
+	  "descricao": "Relógios, Celulares e Vídeo Games"	
+	}
+  ]
+}
