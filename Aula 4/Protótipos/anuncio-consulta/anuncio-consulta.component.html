@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="secao">
+    <div class="row ng-scope">
+      <div class="col-md-5">
+        <h4 class="painel-title ng-binding">
+          <i class="fa fa-wrench"></i>
+          &nbsp;Gerenciar Anúncios
+          <br>
+          <br>
+        </h4>
+      </div>
+    </div>
+    <form>
+      <div class="row">
+        <div class="form-group col-md-2">
+          <label for="tipo">&nbsp;&nbsp;Tipo de Anúncio</label>
+          <select class="form-control">
+            <option>Selecione</option>
+            <option>Imóveis</option>
+            <option>Veículos</option>
+            <option>Outros</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nome">&nbsp;&nbsp;Nome</label>
+          <input id="nome" class="form-control" type="text">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="" class="labelButtonFix">&nbsp;</label>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-success">Pesquisar</button>
+            <button type="submit" class="btn btn-primary">Novo Anúncio</button>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col" style="text-align: center;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Veículos</td>
+                  <td>Camaro Amarelo</td>
+                  <td>R$150.000,00</td>
+                  <td class="center">
+                    <button type="submit" class="btn btn-secundary"><i class="fa fa-eye"></i>&nbsp;Visualizar</button>
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Alterar</button>
+                    &nbsp;
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-remove"></i>&nbsp;Excluir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
