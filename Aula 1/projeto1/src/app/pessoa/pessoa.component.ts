@@ -19,7 +19,7 @@ export class PessoaComponent implements OnInit {
     this.pessoa = new Pessoa("", null);
   }
 
-  protected adicionar(): void {
+  adicionar(): void {
     this.pessoas.push(this.pessoa);
     console.log("Adicionado " + this.pessoa.nome);
     this.ngOnInit();
