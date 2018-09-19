@@ -1,0 +1,7 @@
+Instalando o Currency Mask para valores monetários.
+npm install --save ng2-currency-mask
+https://www.npmjs.com/package/ng2-currency-mask 
+
+Instalando Ngx Mask para mascará no campo telefone.
+npm install --save ngx-mask
+https://www.npmjs.com/package/ngx-mask

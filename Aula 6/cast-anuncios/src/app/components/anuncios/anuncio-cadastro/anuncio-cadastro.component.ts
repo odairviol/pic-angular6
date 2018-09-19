@@ -6,6 +6,9 @@ import { TipoAnuncioService } from '../../../services/tipo-anuncio.service';
 import { Anuncio } from '../../../models/anuncio.model';
 import { AnuncioService } from '../../../services/anuncio.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Imagem } from '../../../models/imagem.model';
+import { Router } from '@angular/router';
+import { Constants } from '../../../utils/constants';
 
 @Component({
   selector: 'app-anuncio-cadastro',
@@ -17,8 +20,11 @@ export class AnuncioCadastroComponent implements OnInit {
   tipos: Observable<TipoAnuncio[]>;
   formulario: FormGroup;
   anuncio: Anuncio;
+  imagem: Imagem;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
     private tipoAnuncioService: TipoAnuncioService,
     private anuncioService: AnuncioService) { }
 
@@ -29,7 +35,7 @@ export class AnuncioCadastroComponent implements OnInit {
     //Criando formulário reativo
     this.formulario = this.formBuilder.group({
       tipo: [null, Validators.required],
-      nome: [null,Validators.required ],
+      nome: [null, Validators.required],
       descricao: [null, Validators.required],
       valor: [null, Validators.required],
       contato: [null, Validators.required]
@@ -37,26 +43,42 @@ export class AnuncioCadastroComponent implements OnInit {
     console.log(this.formulario);
   }
 
-  public salvar(): void {
-    this.anuncio = JSON.parse(JSON.stringify(this.formulario.value));
-    
-    //Inclusão de anúncios na api
-    this.anuncioService.insert(this.anuncio).subscribe(resultado => {
-      this.anuncio = JSON.parse(JSON.stringify(resultado));
-      console.log("Anúncio salvo com sucesso " + this.anuncio.nome); 
-    },
-    (err: HttpErrorResponse) => {
-      console.log(err);
-      if(err != null){
-        if(err.status >= 400 && err.status <= 499){
-          alert("Erro no cliente! Verifique a URL da API");
-        } else if (err.status >= 500 && err.status <= 505){
-          alert("Ocorreu um erro no lado do servidor");
-        }else{
-          alert("Erro não identificado");
-        }
+  public campoValido(campo: string): boolean {
+    let formControl = this.formulario.get(campo);
+    if (campo.toLocaleUpperCase() == "TIPO") {
+      return formControl.value == "null" && (formControl.touched || formControl.dirty);
+    } else {
+      return formControl.invalid && (formControl.touched || formControl.dirty);
+    }
+  }
+
+  public onSelectFile(event: any): void {
+    if(event.target.files && event.target.files.length > 0){
+      let file = event.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        console.log(file.name, reader.result);
+        this.imagem = new Imagem(file.name, reader.result);
       }
-    });
+    }
+  }
+
+  public salvar(): void {
+    if (this.formulario.valid) {
+      
+      this.anuncio = JSON.parse(JSON.stringify(this.formulario.value));
+      this.anuncio.imagem = this.imagem;
+
+      //Inclusão de anúncios na api
+      this.anuncioService.insert(this.anuncio).subscribe(resultado => {
+        this.anuncio = JSON.parse(JSON.stringify(resultado));
+        alert("Anúncio salvo com sucesso " + this.anuncio.nome);
+        this.router.navigate([Constants.PATH_CONSULTA_ANUNCIO]);
+      });
+    } else {
+      alert("Formulário inválido, verifique os campos.");
+    }
   }
 
 }

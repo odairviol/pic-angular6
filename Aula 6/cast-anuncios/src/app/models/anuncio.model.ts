@@ -1,3 +1,5 @@
+import { Imagem } from "./imagem.model";
+
 export class Anuncio {
     constructor(
         public id: number, 
@@ -5,5 +7,6 @@ export class Anuncio {
         public nome:string,
         public descricao: string,
         public valor: string,
-        public contato: string){}
+        public contato: string,
+        public imagem: Imagem){}
 }

@@ -15,7 +15,7 @@ export default class ErrorHttpInterceptor implements HttpInterceptor {
                     } else if (err.status === 400) {
                         alert("Dados inválidos no request");
                     } else if (err.status === 404) {
-                        alert("URL Inválida, tente novamente");
+                        alert("URL inválida, tente novamente");
                     } else if (err.status === 500) {
                         alert("Erro no backend");
                     } else {

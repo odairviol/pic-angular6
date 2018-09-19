@@ -14,7 +14,7 @@ export class AnuncioService {
   //Injeção de dependência do HttpCliente para
   //consumo de APIs rest.
   constructor(private http: HttpClient) { 
-    this.anuncioUrl = `${environment.apiBaseUrl}/anunci`;
+    this.anuncioUrl = `${environment.apiBaseUrl}/anuncios`;
   }
 
   //Insert de anúncios com método POST
