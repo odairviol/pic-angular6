@@ -1,0 +1,37 @@
+{
+  "tipos": [
+    {
+      "id": 1,
+      "nome": "Veículos",
+      "descricao": "Carro, Moto e Caminhões"
+    },
+    {
+      "id": 2,
+      "nome": "Imóveis",
+      "descricao": "Casas, Apartamentos e Terrenos"
+    },
+    {
+      "id": 3,
+      "nome": "Outros",
+      "descricao": "Relógios, Celulares e Vídeo Games"
+    }
+  ],
+  "anuncios": [
+    {
+      "tipo": "1",
+      "nome": "teste",
+      "descricao": "teste",
+      "valor": "12321",
+      "contato": "12321321",
+      "id": 1
+    },
+    {
+      "tipo": "1",
+      "nome": "ssd",
+      "descricao": null,
+      "valor": null,
+      "contato": null,
+      "id": 2
+    }
+  ]
+}
