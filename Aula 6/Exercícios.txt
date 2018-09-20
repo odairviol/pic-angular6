@@ -1,0 +1,4 @@
+1 - Criar classe anuncio-filtro.model.ts para bind no formulário de pesquisa;
+2 - Criar método em AnuncioService para listar os anúncios;
+3 - Fazer chamada a API com base nos filtros;
+3 - Carregar grid de anúncios com *ngFor.
