@@ -16,5 +16,38 @@
       "descricao": "Relógios, Celulares e Vídeo Games"
     }
   ],
-  "anuncios": []
+  "anuncios": [
+    {
+      "tipo": "1",
+      "nome": "teste",
+      "descricao": "teste",
+      "valor": 123.21,
+      "contato": "21332132112",
+      "id": 1
+    },
+    {
+      "tipo": "2",
+      "nome": "Teste casa",
+      "descricao": "teste casa",
+      "valor": 132313.21,
+      "contato": "21332132132",
+      "id": 2
+    },
+    {
+      "tipo": "Veículos",
+      "nome": "teste",
+      "descricao": "teste",
+      "valor": 13212.31,
+      "contato": "32132132132",
+      "id": 3
+    },
+    {
+      "tipo": "Veículos",
+      "nome": "yesffdsa",
+      "descricao": "asdfsada",
+      "valor": 12321.21,
+      "contato": "23132132121",
+      "id": 4
+    }
+  ]
 }
