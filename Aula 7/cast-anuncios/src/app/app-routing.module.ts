@@ -14,7 +14,9 @@ const ROTAS: Routes = [
         children: [ 
             { path: '', component: AnuncioConsultaComponent },
             //localhost:4200/anuncios/add
-            { path: 'add', component: AnuncioCadastroComponent }
+            { path: 'add', component: AnuncioCadastroComponent },
+            //localhost:4200/anuncios/edit/id
+            { path: 'edit/:id', component: AnuncioCadastroComponent }
         ]
   },
   { path: '**', component: NotfoundComponent}

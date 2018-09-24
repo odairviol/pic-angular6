@@ -33,6 +33,11 @@ export class AnuncioService {
     return this.http.post(this.anuncioUrl, anuncio);
   }
 
+  public update(anuncio: Anuncio): Observable<Object> {
+    console.log(anuncio)
+    return this.http.put<Anuncio>(this.anuncioUrl + `/${anuncio.id}`, anuncio);
+  }
+
   findByFiltros(filtro: AnuncioFiltro): Observable<Anuncio[]> {
     console.log(filtro);
     if (filtro.tipo != "null" && filtro.nome != null) {
@@ -47,5 +52,9 @@ export class AnuncioService {
 
   public findAll(): Observable<Anuncio[]> {
     return this.http.get<Anuncio[]>(this.anuncioUrl);
+  }
+
+  public findById(id: number): Observable<Anuncio> {
+    return this.http.get<Anuncio>(this.anuncioUrl + "?id=" + id);
   }
 }

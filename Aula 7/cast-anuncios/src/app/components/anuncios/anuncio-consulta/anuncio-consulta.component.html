@@ -51,11 +51,11 @@
                   <td>{{ anuncio.id }}</td>
                   <td>{{ anuncio.tipo }}</td>
                   <td>{{ anuncio.nome }}</td>
-                  <td>{{ anuncio.valor | currency: 'BRL': true:'2.2-4' }}</td>
+                  <td>{{ anuncio.valor | currency: 'BRL':'R$':'2.2-4' }}</td>
                   <td class="center">
                     <button type="submit" class="btn btn-secundary"><i class="fa fa-eye"></i>&nbsp;Visualizar</button>
                     &nbsp;
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Alterar</button>
+                    <button type="submit" class="btn btn-primary" [routerLink]="['edit', anuncio.id]"><i class="fa fa-edit"></i>&nbsp;Alterar</button>
                     &nbsp;
                     <button type="submit" class="btn btn-danger"><i class="fa fa-remove"></i>&nbsp;Excluir</button>
                   </td>
@@ -63,7 +63,10 @@
               </tbody>
             </table>
             <div class="center">
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              <pagination-controls 
+                (pageChange)="p = $event"
+                previousLabel="Anterior"
+                nextLabel="Próximo"></pagination-controls>
             </div> 
           </div>
         </div>
