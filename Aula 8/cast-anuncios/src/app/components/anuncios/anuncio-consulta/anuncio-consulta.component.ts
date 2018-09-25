@@ -19,6 +19,12 @@ export class AnuncioConsultaComponent implements OnInit {
   filtro: AnuncioFiltro;
   anuncios: Anuncio[];
   formulario: FormGroup; 
+  nomeAnuncio: string;
+  idAnuncio: number;
+
+  anuncioSelecionado: Anuncio;
+
+  exibeExclusao: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private tipoAnuncioService: TipoAnuncioService,
@@ -45,5 +51,28 @@ export class AnuncioConsultaComponent implements OnInit {
       this.anuncios = resultado;
       console.log(this.anuncios);
     })
+  }
+
+  public confirmaExclusao(anuncio: Anuncio): void{
+    this.nomeAnuncio = anuncio.nome;
+    this.idAnuncio = anuncio.id;
+    this.anuncioSelecionado = anuncio;
+    this.exibeExclusao = true;
+  }
+
+  public cancelarAnuncio(mensagem: string): void {
+    console.log(mensagem);
+  }
+
+  public excluirAnuncio(idExclusao: number){
+    console.log(idExclusao);
+    this.anuncioService.delete(idExclusao).subscribe(resultado => {
+      // this.anuncioService.findAll().subscribe(resultado => {
+      //   this.anuncios = resultado;
+      // });
+
+      this.anuncios.splice(this.anuncios.indexOf(this.anuncioSelecionado), 1);
+      alert("Registro excluído com sucesso");
+    });
   }
 }

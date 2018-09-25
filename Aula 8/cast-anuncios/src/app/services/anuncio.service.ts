@@ -38,6 +38,10 @@ export class AnuncioService {
     return this.http.put<Anuncio>(this.anuncioUrl + `/${anuncio.id}`, anuncio);
   }
 
+  public delete(id: number): Observable<Object> {
+    return this.http.delete(this.anuncioUrl + `/${id}`);
+  }
+
   findByFiltros(filtro: AnuncioFiltro): Observable<Anuncio[]> {
     console.log(filtro);
     if (filtro.tipo != "null" && filtro.nome != null) {

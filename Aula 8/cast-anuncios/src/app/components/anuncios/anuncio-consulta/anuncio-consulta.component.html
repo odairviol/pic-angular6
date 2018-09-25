@@ -57,7 +57,7 @@
                     &nbsp;
                     <button type="submit" class="btn btn-primary" [routerLink]="['edit', anuncio.id]"><i class="fa fa-edit"></i>&nbsp;Alterar</button>
                     &nbsp;
-                    <button type="submit" class="btn btn-danger"><i class="fa fa-remove"></i>&nbsp;Excluir</button>
+                    <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir" (click)="confirmaExclusao(anuncio)"><i class="fa fa-remove"></i>&nbsp;Excluir</button>
                   </td>
                 </tr>
               </tbody>
@@ -74,3 +74,4 @@
     </form>
   </div>
 </div>
+<app-confirma-exclusao *ngIf="exibeExclusao" [idExclusao]="idAnuncio" [textoModal]="nomeAnuncio" (eventoModalExcluir)="excluirAnuncio($event)" (eventoModalCancelar)="cancelarAnuncio($event)"></app-confirma-exclusao>
