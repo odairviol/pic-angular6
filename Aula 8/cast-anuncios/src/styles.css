@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+h5 {
+    color: #999
+  }
+  
+h4 {
+    color: #555
+  }
+  
+h3 {
+    color: #555
+  }
+  
+.secao {
+    margin-top: 20px;
+    margin-bottom: 30px
+}
+
+.buscaAjuste {
+    margin-top: 28%;
+}
+
+.labelButtonFix {
+    display: block;
+}
+
+.center {
+    text-align: center;
+}
+
+.alert {
+    font-size: 0.7em;
+}
+
+.centralizar{
+    margin-left: 6%;
+}
