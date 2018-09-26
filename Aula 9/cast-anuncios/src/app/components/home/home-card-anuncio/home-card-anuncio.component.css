@@ -1,0 +1,36 @@
+
+.cardHover {
+    transition: font-size 0.5s ease-out, border 0.5s ease-out, background-color 0.5s, color 0.5s;
+  }
+
+  .card-title{
+      transition:color 0.5s;
+  }
+
+  .cardHover:hover .card-title {
+    color: white;
+  }
+  
+  .cardHover:hover {
+    font-size: 1.05em;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .cardHoverDestaque {
+    transition: font-size 0.5s ease-out, border 0.5s ease-out, background-color 0.5s, color 0.5s;
+    background-color: #ffc107;
+    color:white;
+  }
+  
+  .cardHoverDestaque:hover .card-title {
+    color: white;
+  }
+  
+  .cardHoverDestaque:hover {
+    font-size: 1.05em;
+    background-color: #ffc107;
+    border: 2px solid #FFC107;
+    color: white;
+  }

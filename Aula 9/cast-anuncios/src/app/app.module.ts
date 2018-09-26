@@ -13,6 +13,7 @@ import ErrorHttpInterceptor from './utils/interceptors/error-http-interceptor';
 //Configurando o locale pt-BR
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { HomeCardAnuncioComponent } from './components/home/home-card-anuncio/home-card-anuncio.component';
 registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
@@ -21,7 +22,8 @@ registerLocaleData(localePt, 'pt-BR');
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    HomeCardAnuncioComponent
   ],
   imports: [
     BrowserModule,

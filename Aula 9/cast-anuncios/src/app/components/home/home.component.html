@@ -4,6 +4,11 @@
     <h5 class="text-center">Aproveite e faça bons negócios.</h5>
   </div>
   <hr />
-  <div class="row">
+  <div class="container">
+    <div class="card-deck centralizar">
+      <div *ngFor="let anuncio of anuncios; index as i">
+        <app-home-card-anuncio [anuncio]=anuncios[i]></app-home-card-anuncio>
+      </div>
+    </div>
   </div>
 </div>
