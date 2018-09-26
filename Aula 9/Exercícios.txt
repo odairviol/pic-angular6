@@ -1,0 +1,5 @@
+1 - Criar novo componente de Visualização do Anúncio, podendo ser uma modal ou uma nova rota para outro componente;
+2 - Criar link na grid de consulta para o componente de visualização;
+3 - Criar link no componente home-card-anuncio para o componente de visualização;
+4 - Criar um novo Pipe para limitar a apresentação da descrição do anúncio dentro do componente home-card-anuncio, 
+seguir com o exemplo do Pipe Telefone;
