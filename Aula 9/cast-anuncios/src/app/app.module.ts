@@ -14,6 +14,7 @@ import ErrorHttpInterceptor from './utils/interceptors/error-http-interceptor';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { HomeCardAnuncioComponent } from './components/home/home-card-anuncio/home-card-anuncio.component';
+import { TelefonePipe } from './utils/pipes/telefone.pipe';
 registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
@@ -23,7 +24,8 @@ registerLocaleData(localePt, 'pt-BR');
     FooterComponent,
     HomeComponent,
     NotfoundComponent,
-    HomeCardAnuncioComponent
+    HomeCardAnuncioComponent,
+    TelefonePipe
   ],
   imports: [
     BrowserModule,

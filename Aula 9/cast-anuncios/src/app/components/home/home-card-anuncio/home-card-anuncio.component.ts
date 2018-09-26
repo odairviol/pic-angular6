@@ -13,7 +13,7 @@ export class HomeCardAnuncioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.anuncio);
+    //console.log(this.anuncio);
   }
 
 }
