@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="secao">
+    <h3 class="text-center">Anúncios da Cast Group!</h3>
+    <h5 class="text-center">Aproveite e faça bons negócios.</h5>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="card-deck centralizar">
+      <div *ngFor="let anuncio of anuncios; index as i">
+        <app-home-card-anuncio [anuncio]=anuncios[i]></app-home-card-anuncio>
+      </div>
+    </div>
+  </div>
+</div>
