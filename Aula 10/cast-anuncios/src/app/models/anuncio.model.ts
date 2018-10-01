@@ -8,5 +8,6 @@ export class Anuncio {
         public descricao: string,
         public valor: string,
         public contato: string,
-        public imagem: Imagem){}
+        public imagem: Imagem,
+        public destaque: boolean){}
 }

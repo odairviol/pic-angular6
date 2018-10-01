@@ -61,4 +61,8 @@ export class AnuncioService {
   public findById(id: number): Observable<Anuncio> {
     return this.http.get<Anuncio>(this.anuncioUrl + "?id=" + id);
   }
+
+  public findByNome(texto: string): Observable<Anuncio[]> {
+    return this.http.get<Anuncio[]>(this.anuncioUrl + "?nome_like=" + texto);
+  }
 }

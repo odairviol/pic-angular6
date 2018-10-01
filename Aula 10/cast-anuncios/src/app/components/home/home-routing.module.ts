@@ -9,7 +9,7 @@ const ROTAS_HOME: Routes = [
   { path: '', 
       children: [ 
         { path: '', component: HomeComponent },
-        //localhost:4200/home/detalhe
+        //localhost:4200/view
         { path: 'view/:id', component: HomeDetalheAnuncioComponent }
     ] 
   }

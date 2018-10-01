@@ -12,6 +12,16 @@
     <br/>
     <form novalidate [formGroup]="formulario" (ngSubmit)="salvar()">
       <div class="row">
+        <div class="form-group col-md-4">
+          <label for="destaque">&nbsp;&nbsp;Destaque</label>
+          &nbsp;&nbsp;
+          <input 
+            id="destaque" 
+            type="checkbox"
+            formControlName="destaque">
+        </div>
+      </div>
+      <div class="row">
         <div class="form-group col-md-2">
           <label for="tipo">&nbsp;&nbsp;Tipo de Anúncio *</label>
           <select class="form-control" formControlName="tipo">

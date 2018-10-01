@@ -77,7 +77,8 @@ export class AnuncioCadastroComponent implements OnInit {
       nome: [null, Validators.required],
       descricao: [null, Validators.required],
       valor: [null, Validators.required],
-      contato: [null, Validators.required]
+      contato: [null, Validators.required],
+      destaque: [false]
     });
   }
 
