@@ -1,0 +1,11 @@
+<div class="card" id="anuncio1" [ngClass]="{'cardHoverDestaque': anuncio?.destaque, 'cardHover': !anuncio?.destaque}">
+    <img class="card-img-top" [src]="imagem" alt="Card image cap">
+    <div class="card-body">
+      <a  [routerLink]="['view', anuncio.id]"> 
+        <h5 class="card-title">{{ anuncio.nome }}</h5>
+      </a>
+      <p class="card-text">{{ anuncio.descricao | truncateTexto:10 }}</p>
+      <p class="card-text">{{ anuncio.valor | currency: 'BRL':'R$':'2.2-4' }}</p>
+      <p class="card-text">{{ anuncio.contato | telefone }}</p>
+    </div>
+</div>

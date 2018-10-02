@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="secao">
+    <div class="row ng-scope">
+      <div class="col-md-5">
+        <h4 class="painel-title ng-binding">
+          <i class="fa fa-wrench"></i>
+          &nbsp;Gerenciar Anúncios
+          <br>
+          <br>
+        </h4>
+      </div>
+    </div>
+    <form novalidate [formGroup]="formulario">
+      <div class="row">
+        <div class="form-group col-md-2">
+          <label for="tipo">&nbsp;&nbsp;Tipo de Anúncio</label>
+          <select class="form-control" formControlName="tipo">
+            <option [value]="null">Selecione</option>
+            <option *ngFor="let tipo of tipos | async" [value]="tipo.nome">{{tipo.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nome">&nbsp;&nbsp;Nome</label>
+          <input id="nome" class="form-control" type="text" formControlName="nome">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="" class="labelButtonFix">&nbsp;</label>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-success" (click)="pesquisar()">Pesquisar</button>
+            <button type="submit" class="btn btn-primary" routerLink="add">Novo Anúncio</button>
+          </div>
+        </div>
+      </div>
+
+      <br/>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col" style="text-align: center;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let anuncio of anuncios | paginate: { itemsPerPage: 2, currentPage: p }">
+                  <td>{{ anuncio.id }}</td>
+                  <td>{{ anuncio.tipo }}</td>
+                  <td>{{ anuncio.nome }}</td>
+                  <td>{{ anuncio.valor | currency: 'BRL':'R$':'2.2-4' }}</td>
+                  <td class="center">
+                    <button type="submit" class="btn btn-secundary" data-toggle="modal" data-target="#modalDetalhe" (click)="visualizar(anuncio)"><i class="fa fa-eye"></i>&nbsp;Visualizar</button>
+                    &nbsp;
+                    <button type="submit" class="btn btn-primary" [routerLink]="['edit', anuncio.id]"><i class="fa fa-edit"></i>&nbsp;Alterar</button>
+                    &nbsp;
+                    <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir" (click)="confirmaExclusao(anuncio)"><i class="fa fa-remove"></i>&nbsp;Excluir</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="center">
+              <pagination-controls 
+                (pageChange)="p = $event"
+                previousLabel="Anterior"
+                nextLabel="Próximo"></pagination-controls>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-confirma-exclusao *ngIf="exibeExclusao" 
+                      [idExclusao]="idAnuncio" 
+                      [textoModal]="nomeAnuncio" 
+                      (eventoModalExcluir)="excluirAnuncio($event)" 
+                      (eventoModalCancelar)="cancelarAnuncio($event)"
+                      #componenteExclusao></app-confirma-exclusao>
+
+<app-anuncio-modal-detalhe *ngIf="anuncioSelecionado" 
+                            [anuncio]="anuncioSelecionado" ></app-anuncio-modal-detalhe>

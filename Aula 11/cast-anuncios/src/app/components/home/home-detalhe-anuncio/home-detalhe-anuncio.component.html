@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="secao">
+    <button type="button" class="btn btn-secundary" routerLink="">
+      <i class="fa fa-ban"></i>&nbsp;Voltar
+    </button>
+    <div class="card" id="anuncio1">
+      <img class="card-img-top" *ngIf="anuncio?.imagem" [src]="anuncio.imagem.value" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ anuncio?.nome }}</h5>
+        <p class="card-text">{{ anuncio?.descricao }}</p>
+        <p class="card-text">{{ anuncio?.valor | currency: 'BRL':'R$':'2.2-4' }}</p>
+        <p class="card-text">{{ anuncio?.contato | telefone }}</p>
+      </div>
+    </div>
+  </div>
+</div>

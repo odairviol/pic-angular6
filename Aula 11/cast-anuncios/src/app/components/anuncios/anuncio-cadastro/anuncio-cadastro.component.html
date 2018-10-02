@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="secao">
+    <div class="row ng-scope">
+      <div class="col-md-5">
+        <h4 class="painel-title ng-binding">
+          <i class="fa fa-plus "></i>
+          &nbsp; Novo Anúncio
+          <br>
+        </h4>
+      </div>
+    </div>
+    <br/>
+    <form novalidate [formGroup]="formulario" (ngSubmit)="salvar()">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="destaque">&nbsp;&nbsp;Destaque</label>
+          &nbsp;&nbsp;
+          <input 
+            id="destaque" 
+            type="checkbox"
+            formControlName="destaque">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-2">
+          <label for="tipo">&nbsp;&nbsp;Tipo de Anúncio *</label>
+          <select class="form-control" formControlName="tipo">
+            <option [value]=null>Selecione</option>
+            <option *ngFor="let tipo of tipos | async" [value]="tipo.nome">{{tipo.nome}}</option>
+          </select>
+          <div class="alert alert-danger" role="alert" *ngIf="campoValido('tipo')">O Campo Tipo é Obrigatório!</div>  
+        </div>
+        <div class="form-group col-md-4">
+          <label for="nome">&nbsp;&nbsp;Nome *</label>
+          <input 
+            id="nome" 
+            class="form-control" 
+            type="text"
+            formControlName="nome">
+          <div class="alert alert-danger" role="alert" *ngIf="campoValido('nome')">O Campo Nome é Obrigatório!</div>  
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="valor">&nbsp;&nbsp;Descrição *</label>
+          <textarea 
+            rows="2" 
+            class="form-control"
+            formControlName="descricao"></textarea>
+          <div class="alert alert-danger" role="alert" *ngIf="campoValido('descricao')">O Campo Descrição é Obrigatório!</div>  
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-2">
+          <label for="valor">&nbsp;&nbsp;Valor R$ *</label>
+          <input 
+            id="valor" 
+            class="form-control" 
+            type="text"
+            maxlength="25"
+            formControlName="valor"
+            currencyMask
+            [options]="{ prefix: 'R$', thousands: '.', decimal: ',' }">
+          <div class="alert alert-danger" role="alert" *ngIf="campoValido('valor')">O Campo Valor é Obrigatório!</div>  
+        </div>
+        <div class="form-group col-md-4">
+          <label for="contato">&nbsp;&nbsp;Contato *</label>
+          <input 
+            id="contato" 
+            class="form-control" 
+            type="text"
+            formControlName="contato"
+            mask="(99) 9?9999-9999">
+            <div class="alert alert-danger" role="alert" *ngIf="campoValido('contato')">O Campo Contato é Obrigatório!</div>  
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="file">&nbsp;&nbsp;Coloque uma imagem</label>
+          <input  cass="form-control" id="input-file" type="file" (change)="onSelectFile($event)" #inputFile>
+        </div> 
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-6" >
+        <div class="btn-group" >
+          <button type="button" class="btn btn-secundary" routerLink="/anuncios"><i class="fa fa-ban"></i>&nbsp;Cancelar</button>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;{{labelButton}}</button>
+        </div>
+      </div>
+      </div>
+    </form>
+  </div>
+  <br/>
+  <br/>
+</div>

@@ -1,0 +1,40 @@
+<div class="">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-6">
+          <a class="navbar-brand">
+            <img src="./assets/logo.jpg" />
+          </a>
+        </div>
+        <div class="col-lg-7 col-md-6">
+          <input type="text" 
+                class="form-control buscaAjuste" 
+                placeholder="Pesquise aqui..." 
+                (keyup)="pesquisa(termoDaPesquisa.value)"
+                #termoDaPesquisa/>
+          <ul class="list-group" style="position: absolute; z-index: 999">
+            <li class="list-group-item" *ngFor="let anuncio of anuncios | async">
+              <a [routerLink]="['view', anuncio.id]" (click)="limparPesquisa()">
+                {{ anuncio.nome }}
+              </a>
+            </li>
+          </ul>      
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="menu">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="active" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="active" routerLink="anuncios">Gerenciar Anúncios</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
